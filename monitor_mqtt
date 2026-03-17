@@ -1,0 +1,2 @@
+mosquitto_sub -h localhost -t sensors/crank -v
+

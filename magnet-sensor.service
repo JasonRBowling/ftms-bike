@@ -1,0 +1,33 @@
+[Unit]
+Description=Crank Magnet Sensor to MQTT Publisher
+Documentation=https://github.com/your-repo/ftms
+After=network.target mosquitto.service
+Wants=mosquitto.service
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 2
+ExecStart=/usr/bin/python3 /home/pi/ftms/magnet_sensor_mqtt.py
+WorkingDirectory=/home/pi/ftms
+Restart=on-failure
+RestartSec=5
+User=root
+Group=root
+
+# Environment variables (uncomment and modify if needed)
+#Environment="MQTT_HOST=localhost"
+#Environment="MQTT_PORT=1883"
+#Environment="GPIO_PIN=17"
+#Environment="DEBOUNCE_MS=50"
+#Environment="MIN_INTERVAL_MS=100"
+#Environment="DEBUG=0"
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=magnet-sensor
+
+[Install]
+WantedBy=multi-user.target

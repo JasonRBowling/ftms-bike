@@ -1,0 +1,2 @@
+# Watch both services
+journalctl -u magnet-sensor -u ftms-bridge -f
