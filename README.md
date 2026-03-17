@@ -3,6 +3,8 @@ Turn a Raspberry Pi into a Bluetooth Low Energy (BLE) cycling sensor for "dumb" 
 
 Small script watches GPIO pin to be pulled to ground by Hall effect sensor, fires MQTT message each time the crank arm passes the sensor. Main program computes power curve from cadence using an adjustable curve. This is about as simple as it gets, but is extremely inexpensive and is quite enjoyable to ride with in the games.
 
+I used a A3144 Hall effect sensor - you want the non-latching type, so that it releases after the magnet passes the crank.
+
 # Pi Crank FTMS
 
 Turn a Raspberry Pi into a Bluetooth Low Energy (BLE) fitness sensor for your bike. This project reads crank revolutions from a hall effect sensor and broadcasts cadence, power, and speed to fitness apps like Zwift, MyWhoosh, Kinomap, and other FTMS-compatible applications.
